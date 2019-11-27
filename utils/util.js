@@ -13,23 +13,7 @@ const formatNumber = n => {
   n = n.toString()
   return n[1] ? n : '0' + n
 }
-var sData = sudokuData()
-
-function searchSData(id) { 
-  var result 
-  for (let i = 0; i < sData.list.length; i++) { 
-    var s = sData.list[i] 
-    if (s.id == id) { 
-      result = s;
-      break;
-    } 
-  } 
-  return result || {} 
-}  
-
 
 module.exports = {
-  formatTime: formatTime,
-  sudokuData: sudokuData,
-  searchSData: searchSData
+  formatTime: formatTime
 }

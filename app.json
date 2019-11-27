@@ -1,21 +1,15 @@
 {
-    "pages": [
-        "pages/index/index",
-        "pages/sudoku/sudoku",
-        "pages/pk_sudoku/pk_sudoku",
-        "pages/about/about",
-        "pages/waiting/waiting",
-        "pages/level_select/level_select",
-        "pages/setting/setting",
-        "pages/fight/fight",
-        "pages/result/result",
-        "pages/fight/create/create"
-    ],
-    "window": {
-        "backgroundTextStyle": "light",
-        "navigationBarBackgroundColor": "#DBEDF3",
-        "navigationBarTitleText": "WeChat",
-        "navigationBarTextStyle": "black",
-        "backgroudColor": "#FBF4D9"
-    }
+  "pages": [
+    "pages/index/index",
+    "pages/level/level",
+    "pages/sudoku/sudoku",
+    "pages/result/result"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json"
 }

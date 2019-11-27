@@ -1,0 +1,21 @@
+<!--pages/level/level.wxml-->
+<view id="page" style='background-color:{{page_background_color}}; width:100%; height:{{page_height}}px; position:fixed;'>
+  <swiper id="level_select_scroll" indicator-dots="true" style='width:750rpx; height:{{level_select_scroll_height}}px; position: fixed; top:{{level_select_scroll_top}}px;'>
+    <swiper-item>
+      <view class="level_text"> 普通数独 </view>
+      <view class="level_select_list" wx:for="{{levelSelectList}}" wx:key="{{index}}" style='height:{{level_select_list_height}}px; margin-top{{level_select_list_margin_top}}px; margin-bottom:{{level_select_list_margin_bottom}}px;'>
+        <view class="level_select_text" style='height:{{level_select_list_height}}px; line-height:{{level_select_list_height}}px; margin-left:{{level_select_list_height*0.55}}px;'>{{item.text}}</view>
+        <image class="level_select_adornment" src="/images/level/level_select_for{{item.id1}}.png" style='height:{{level_select_list_height*0.55}}px; width:{{level_select_list_height*0.55}}px;' />
+        <image class="level_select_iamge" mode="aspectFill" src="{{item.image1}}" style='height:{{level_select_list_height}}px; width:{{level_select_list_height}}px;'> </image>
+      </view>
+    </swiper-item>
+    <swiper-item>
+      <view class="level_text"> 对角线数独 </view>
+      <view class="level_select_list" wx:for="{{levelSelectList}}" wx:key="{{index}}" style='height:{{level_select_list_height}}px; margin-top{{level_select_list_margin_top}}px; margin-bottom:{{level_select_list_margin_bottom}}px;'>
+        <view class="level_select_text" style='height:{{level_select_list_height}}px; line-height:{{level_select_list_height}}px; margin-left:{{level_select_list_height*0.55}}px;'>{{item.text}}</view>
+        <image class="level_select_adornment" src="/images/level/level_select_for{{item.id1}}.png" style='height:{{level_select_list_height*0.55}}px; width:{{level_select_list_height*0.55}}px;'/>
+        <image class="level_select_iamge" mode="aspectFill" src="{{item.image2}}" style='height:{{level_select_list_height}}px; width:{{level_select_list_height}}px;'> </image>
+      </view>
+    </swiper-item>
+  </swiper>
+</view>

@@ -1,75 +1,66 @@
 // pages/result/result.js
 Page({
+
+  /**
+   * 页面的初始数据
+   */
   data: {
-      resultList: [
-        {
-          key: 0,
-          item_imgPath: "",
-          item_type: "",
-          item_time: "",
-          item_date: "",
-          item_teim_isPK: 0
-        }
-      ]
+
   },
-  onLoad() {
-    var storage = [];
-    try {
-      var value = wx.getStorageSync('key')
-      if (value) {
-        storage = splitData(value)
-      }
-    } catch (e) {
-      console.log('get storage error')
-    }
-    this.setData({
-      resultList: storage
-    })
-    console.log(this.data.resultList)
-    },
-    onShareAppMessage: function () {
-        let picNum = Math.floor(Math.random() * 10) + 1
-        let url = 'https://www.tianzhipengfei.xin/static/share' + picNum.toString() + '.jpg'
-        console.log(url)
-        return {
-            title: '来啊造作啊',
-            path: '/pages/index/index',
-            imageUrl: url,
-            success: function (res) {
-                //console.log('success')
-            },
 
-            fail: function (res) {
-                wx.showToast({
-                    title: '分享失败',
-                    icon: 'none',
-                    duration: 1000
-                })
-            }
-        }
-    }
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function () {
+
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+
+  }
 })
-
-function splitData(data) {
-  var lines = new Array()
-  var words = new Array()
-  var result = new Array()
-  var count = 0
-  lines = data.split("?")
-  for (var i = 0; i < lines.length; i++) {
-    words[i] = new Array()
-      words[i] = lines[lines.length-i-1].split("|")
-  }
-  for (var i = 0; i < words.length; i++) {
-    var item = {
-      key: count++,
-      item_imgPath: words[i][0],
-      item_type: words[i][1],
-      item_time: words[i][2],
-      item_date: words[i][3],
-        item_isPK: parseInt(words[i][4])
-    }
-    result.push(item)
-  }
-  return result
-}

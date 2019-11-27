@@ -1,5 +1,5 @@
 <!--pages/result/result.wxml-->
-<view class="title"> 战绩 </view>
+<view id="title"> 战绩 </view>
 <view class="container">
     <scroll-view class="result_scroll" scroll-y>
         <view class="result_list" wx:for="{{resultList}}" wx:key="key"> 

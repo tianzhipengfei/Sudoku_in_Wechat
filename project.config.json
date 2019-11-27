@@ -1,17 +1,26 @@
 {
-	"description": "项目配置文件。",
+	"description": "项目配置文件",
+	"packOptions": {
+		"ignore": []
+	},
 	"setting": {
 		"urlCheck": true,
 		"es6": true,
 		"postcss": true,
 		"minified": true,
-		"newFeature": true
+		"newFeature": true,
+		"autoAudits": false
 	},
 	"compileType": "miniprogram",
-	"libVersion": "1.9.91",
+	"libVersion": "2.6.1",
 	"appid": "wxc362409c6d373bb0",
-	"projectname": "sudoku_2",
+	"projectname": "sudoku_battle",
+	"debugOptions": {
+		"hidedInDevtools": []
+	},
 	"isGameTourist": false,
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
 	"condition": {
 		"search": {
 			"current": -1,
@@ -30,19 +39,27 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
+			"current": 2,
 			"list": [
 				{
-					"id": 0,
-					"name": "ui",
-					"pathName": "pages/result/result",
-					"query": ""
+					"id": -1,
+					"name": "level",
+					"pathName": "pages/level/level",
+					"query": "",
+					"scene": null
 				},
 				{
 					"id": -1,
-					"name": "pk",
-					"pathName": "pages/pk_sudoku/pk_sudoku",
-					"query": ""
+					"name": "sudoku",
+					"pathName": "pages/sudoku/sudoku",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "result",
+					"pathName": "pages/result/result",
+					"scene": null
 				}
 			]
 		}

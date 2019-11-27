@@ -1,57 +1,40 @@
 <!--index.wxml-->
-<view  wx:if="{{userInformation}}"  id = "userInfo" class="cell">
-        <view class="avatar">
-            <open-data mode="cover" type="userAvatarUrl"></open-data>
+<view id="page" style='background-color:{{page_background_color}}; width:100%; height:{{page_height}}px; position:fixed;'>
+  <view class="cell" id="user_info" style='background-color:{{user_info_background_color}}; width:{{user_info_width}}px; height:{{user_info_height}}px; position:fixed; left:{{user_info_left}}px; top:{{user_info_top}}px; display:flex; flex-direction: row;'>
+    <view id="avatar" style="height:{{avatar_height}}px; width:{{avatar_width}}px; margin-left:{{avatar_left}}px; margin-top:{{avatar_top}}px; border-radius:{{avatar_border_radius}}px; border:5rpx {{avatar_border_color}} solid; overflow:hidden;">
+      <open-data mode="cover" type="userAvatarUrl"></open-data>
+    </view>
+    <view id="user_info_text" style="width:{{user_info_text_width}}px; height:{{user_info_text_height}}px; margin-left:{{user_info_text_left}}px; display:flex; flex-direction:column; align-items: center;">
+      <open-data id="user_name" type="userNickName" style="width:{{user_name_width}}px; height:{{user_name_height}}px; text-align: center; line-height:{{user_name_height}}px; font-size:{{user_name_font_size}}px; font-weight:bold;"></open-data>
+      <view id="user_level" style="height:{{user_level_height}}px; width:{{user_level_width}}px; text-align:center; line-height:{{user_level_height}}px; font-weight:bold;"> {{user_level_text}} </view>
+      <view id="level_wrapper" style="border:1px solid #000; border-radius:6px; height:{{level_wrapper_height}}px; width: {{level_wrapper_width}}px;">
+        <view id="cur_level" style='width:{{cur_level_ratio*level_wrapper_width}}px; height:{{cur_level_height}}px; background-color:{{cur_level_background_color}}; z-index:1; border-top-left-radius:6px; border-bottom-left-radius:6px;'>
+          <view id="cur_level_text" style="width:{{level_wrapper_width}}px; line-height:{{cur_level_height}}px; font-size:{{cur_level_height*4/5}}px; text-align:center; font-weight:bold;"> {{cur_level_text}} </view>
         </view>
-      <!-- <image class = "avatar" src="{{imgurl}}"> </image> -->
-      <view class = "userInfoText">
-          <open-data class="userName" type="userNickName"></open-data>
-          <view class="userLevelWrapper">
-            <view class = "userLevel"> {{level_item.name}} </view> 
-            <view class="total"> 
-              <view class="now" style='width:{{level_item.ratio*347}}rpx'>
-                <view class="vl"> {{level_item.str}} </view>
-              </view> 
-            </view>
-          </view>
       </view>
+    </view>
+  </view>
+  <view class="cell" id="new_game" style='background-color:{{new_game_background_color}}; width:{{new_game_width}}px; height:{{new_game_height}}px; position: fixed; left:{{new_game_left}}px; top:{{new_game_top}}px'>
+    <view class="item_text"> 新建游戏</view>
+    <image id="new_game_icon" src="/images/index/new-game.png" style="width:{{new_game_icon_width}}px; height:{{new_game_icon_height}}px; position:relative; top:{{new_game_icon_top}}px; left:{{new_game_icon_left}}px;" />
+  </view>
+  <view class="cell" id="result" style='background-color:{{result_background_color}}; width:{{result_width}}px; height:{{result_height}}px; position: fixed; left:{{result_left}}px; top:{{result_top}}px'>
+    <view class="item_text"> 战绩查询</view>
+    <image id="result_icon" src="/images/index/result.png" style="width:{{result_icon_width}}px; height:{{result_icon_height}}px; position:relative; top:{{result_icon_top}}px; left:{{result_icon_left}}px;" />
+  </view>
+  <view class=" cell" id="help" style='background-color:{{help_background_color}}; width:{{help_width}}px; height:{{help_height}}px; position: fixed; left:{{help_left}}px; top:{{help_top}}px'>
+    <view class="item_text"> 帮助</view>
+    <image id="result_icon" src="/images/index/help.png" style="width:{{help_icon_width}}px; height:{{help_icon_height}}px; position:relative; top:{{help_icon_top}}px; left:{{help_icon_left}}px;" />
+  </view>
+  <view class="cell" id="pk" style='background-color:{{pk_background_color}}; width:{{pk_width}}px; height:{{pk_height}}px; position: fixed; left:{{pk_left}}px; top:{{pk_top}}px'>
+    <view class="item_text"> 好友对战</view>
+    <image id="pk_icon" src="/images/index/pk.png" style="width:{{pk_icon_width}}px; height:{{pk_icon_height}}px; position:relative; top:{{pk_icon_top}}px; left:{{pk_icon_left}}px;" />
+  </view>
+  <view class="cell" id="setting" style='background-color:{{setting_background_color}}; width:{{setting_width}}px; height:{{setting_height}}px; position:fixed; left:{{setting_left}}px; top:{{setting_top}}px; flex-direction:row;'>
+    <view class="item_text"> 设置</view>
+    <image id="setting_icon" src="/images/index/setting.png" style="width:{{setting_icon_width}}px; height:{{setting_icon_height}}px; position:relative; top:{{setting_icon_top}}px; left:{{setting_icon_left}}px;" />
+  </view>
+  <view class="cell" id="about" style='background-color:{{about_background_color}}; width:{{about_width}}px; height:{{about_height}}px; position: fixed; left:{{about_left}}px; top:{{about_top}}px'>
+    <image id="about_icon" src="/images/index/about.png" style="width:{{about_icon_width}}px; height:{{about_icon_height}}px; position:relative; top:{{about_icon_top}}px; left:{{about_icon_left}}px;" />
+  </view>
 </view>
-
-<view wx:else>
-  <button id='authorize' open-type='getUserInfo' bindgetuserinfo='bindgetuserinfo'> 授权 </button>
-</view>
-
-
-
-<view id="newGame" class="cell" bindtap='toNewGame'>
-    <view class="itemText"> 新建游戏</view>
-     <image id="newGameIcon" src="/images/new-game.png"/> 
-</view>
-
-<view id = "result" class="cell" bindtap='toResult'>
-    <view class="itemText" > 战绩查询  </view>
-    <image id="trophy" src="/images/trophy.png"/>
-</view>
-
-
-<view id="help" class="cell" bindtap='toHelp'>
-    <view class="itemText">帮助</view>
-
-    <image id="helpIcon" src="/images/help.png"/>
-</view>
-
-<view id="pk" class="cell" bindtap='toFight'>
-    <view class="itemText"> 好友对战  </view>
-    <image id="pkIcon" src="/images/pk.png"/>
-    
-</view>
-
-<view id="setting" class="cell" bindtap='toSetting'>
-   <view id="settingText"> 设置 </view> 
-   <image id="settingIcon" src="/images/setting.png"/>
-</view>
-
-<view id="about" class="cell" bindtap='showInfo'>
-  <image id="infoIcon" src="/images/info.png"/>
-</view>
-
